@@ -1,0 +1,22 @@
+23:00:49 **** Incremental Build of configuration Debug for project usart kck ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+../Core/Src/stm32f4xx_hal_msp.c: In function 'HAL_MspInit':
+../Core/Src/stm32f4xx_hal_msp.c:68:3: warning: implicit declaration of function '__HAL_RCC_SYSCFG_CLK_ENABLE' [-Wimplicit-function-declaration]
+   68 |   __HAL_RCC_SYSCFG_CLK_ENABLE();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/stm32f4xx_hal_msp.c:69:3: warning: implicit declaration of function '__HAL_RCC_PWR_CLK_ENABLE' [-Wimplicit-function-declaration]
+   69 |   __HAL_RCC_PWR_CLK_ENABLE();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/stm32f4xx_hal_msp.c:74:1: warning: implicit declaration of function 'HAL_NVIC_SetPriorityGrouping' [-Wimplicit-function-declaration]
+   74 | HAL_NVIC_SetPriorityGrouping(4);
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/stm32f4xx_hal_msp.c: At top level:
+../Core/Src/stm32f4xx_hal_msp.c:78:28: error: unknown type name 'TIM_HandleTypeDef'
+   78 | void  HAL_TIM_MspPostInit (TIM_HandleTypeDef *htim){
+      |                            ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/stm32f4xx_hal_msp.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+
+23:00:50 Build Failed. 2 errors, 3 warnings. (took 456ms)
+

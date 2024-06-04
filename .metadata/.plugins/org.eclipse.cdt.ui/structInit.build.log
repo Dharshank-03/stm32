@@ -1,0 +1,18 @@
+11:50:39 **** Rebuild of configuration Debug for project structInit ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+..\main.c: In function 'main':
+..\main.c:16:50: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'long long unsigned int' [-Wformat=]
+   16 |         printf("Sizeof of struct carModel is %I64u\n",sizeof(struct carModel));
+      |                                              ~~~~^    ~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                  |    |
+      |                                                  |    long long unsigned int
+      |                                                  unsigned int
+      |                                              %I64llu
+..\main.c:15:26: warning: unused variable 'carBMW' [-Wunused-variable]
+   15 |         struct carModel  carBMW = {0};
+      |                          ^~~~~~
+gcc -o structInit.exe main.o 
+
+11:50:40 Build Finished. 0 errors, 2 warnings. (took 953ms)
+

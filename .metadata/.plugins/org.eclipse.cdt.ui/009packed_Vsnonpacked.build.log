@@ -1,0 +1,20 @@
+11:49:40 **** Build of configuration Debug for project 009packed_Vsnonpacked ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f407vgtx.d" -MT"Startup/startup_stm32f407vgtx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "009packed_Vsnonpacked.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Admin\OneDrive\Desktop\embedded c\instructor\host\009packed_Vsnonpacked\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="009packed_Vsnonpacked.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 009packed_Vsnonpacked.elf
+ 
+arm-none-eabi-size   009packed_Vsnonpacked.elf 
+arm-none-eabi-objdump -h -S  009packed_Vsnonpacked.elf  > "009packed_Vsnonpacked.list"
+   text	   data	    bss	    dec	    hex	filename
+   5472	    108	   1596	   7176	   1c08	009packed_Vsnonpacked.elf
+Finished building: default.size.stdout
+ 
+Finished building: 009packed_Vsnonpacked.list
+ 
+
+11:49:42 Build Finished. 0 errors, 0 warnings. (took 1s.720ms)
+

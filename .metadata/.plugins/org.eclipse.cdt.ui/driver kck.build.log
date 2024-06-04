@@ -1,0 +1,10 @@
+21:50:51 **** Incremental Build of configuration Debug for project driver kck ****
+make -j4 all 
+arm-none-eabi-size   driver\ kck.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1260	      8	   1568	   2836	    b14	driver kck.elf
+Finished building: default.size.stdout
+ 
+
+21:50:51 Build Finished. 0 errors, 0 warnings. (took 317ms)
+

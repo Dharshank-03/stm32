@@ -1,0 +1,18 @@
+11:50:50 **** Rebuild of configuration Debug for project var_address ****
+Info: Internal Builder is used for build
+gcc -std=c99 -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+..\main.c: In function 'main':
+..\main.c:27:41: warning: 'I' flag used with '%x' gnu_printf format [-Wformat=]
+   27 |    printf("Address of variable a1 = %I64x\n",addressOfa1);
+      |                                         ^
+..\main.c:27:41: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'long long unsigned int' [-Wformat=]
+   27 |    printf("Address of variable a1 = %I64x\n",addressOfa1);
+      |                                     ~~~~^    ~~~~~~~~~~~
+      |                                         |    |
+      |                                         |    long long unsigned int
+      |                                         unsigned int
+      |                                     %I64llx
+gcc -o var_address.exe main.o 
+
+11:50:50 Build Finished. 0 errors, 2 warnings. (took 762ms)
+

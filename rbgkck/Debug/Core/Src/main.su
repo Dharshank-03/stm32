@@ -1,0 +1,9 @@
+../Core/Src/main.c:61:6:HAL_TIM_PWM_PulseFinishedCallback	16	static
+../Core/Src/main.c:69:6:setledkck	16	static
+../Core/Src/main.c:76:6:send	32	static
+../Core/Src/main.c:117:5:main	16	static
+../Core/Src/main.c:176:6:SystemClock_Config	88	static
+../Core/Src/main.c:223:13:MX_TIM2_Init	64	static
+../Core/Src/main.c:280:13:MX_DMA_Init	16	static
+../Core/Src/main.c:298:13:MX_GPIO_Init	40	static
+../Core/Src/main.c:329:6:Error_Handler	4	static,ignoring_inline_asm

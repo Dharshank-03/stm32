@@ -1,0 +1,10 @@
+23:21:04 **** Incremental Build of configuration Debug for project 12ckck2 ****
+make -j4 all 
+arm-none-eabi-size   12ckck2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  26324	    488	   1592	  28404	   6ef4	12ckck2.elf
+Finished building: default.size.stdout
+ 
+
+23:21:04 Build Finished. 0 errors, 0 warnings. (took 346ms)
+

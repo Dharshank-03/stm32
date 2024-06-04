@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;RGBDARK_KCK/RGBDARK_KCK.ioc&apos;" deleteContents="false" description="Delete resource &apos;RGBDARK_KCK/RGBDARK_KCK.ioc&apos;" element1="/RGBDARK_KCK/RGBDARK_KCK.ioc" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1697728589764"/>
+</session>

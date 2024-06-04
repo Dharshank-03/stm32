@@ -1,0 +1,28 @@
+22:18:14 **** Incremental Build of configuration Debug for project rbgkck ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'send':
+../Core/Src/main.c:100:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  100 |  while (!datasentflag);
+      |  ^~~~~
+../Core/Src/main.c:101:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  101 |   datasentflag = 0;
+      |   ^~~~~~~~~~~~
+At top level:
+../Core/Src/main.c:144:6: warning: 'dis' defined but not used [-Wunused-function]
+  144 | void dis(int val){
+      |      ^~~
+arm-none-eabi-gcc -o "rbgkck.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Admin\OneDrive\Desktop\embedded c\instructor\host\rbgkck\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rbgkck.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rbgkck.elf
+ 
+arm-none-eabi-size   rbgkck.elf 
+arm-none-eabi-objdump -h -S  rbgkck.elf  > "rbgkck.list"
+   text	   data	    bss	    dec	    hex	filename
+  14196	     20	   2244	  16460	   404c	rbgkck.elf
+Finished building: default.size.stdout
+ 
+Finished building: rbgkck.list
+ 
+
+22:18:16 Build Finished. 0 errors, 2 warnings. (took 1s.325ms)
+

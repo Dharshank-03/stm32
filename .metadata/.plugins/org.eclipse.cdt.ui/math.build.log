@@ -1,0 +1,24 @@
+11:50:29 **** Rebuild of configuration Debug for project math ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+..\main.c: In function 'main':
+..\main.c:9:27: warning: 'I' flag used with '%x' gnu_printf format [-Wformat=]
+    9 |         printf("Mul : %I64x\n",math_mul(0x0FFF1111 , 0x0FFF1111 ) );
+      |                           ^
+..\main.c:9:27: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'long long int' [-Wformat=]
+    9 |         printf("Mul : %I64x\n",math_mul(0x0FFF1111 , 0x0FFF1111 ) );
+      |                       ~~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           |    |
+      |                           |    long long int
+      |                           unsigned int
+      |                       %I64llx
+..\main.c:11:42: error: 'n1' undeclared (first use in this function)
+   11 |         printf("Div : %0.2f\n", math_div(n1, n2));
+      |                                          ^~
+..\main.c:11:42: note: each undeclared identifier is reported only once for each function it appears in
+..\main.c:11:46: error: 'n2' undeclared (first use in this function)
+   11 |         printf("Div : %0.2f\n", math_div(n1, n2));
+      |                                              ^~
+
+11:50:29 Build Failed. 2 errors, 2 warnings. (took 342ms)
+

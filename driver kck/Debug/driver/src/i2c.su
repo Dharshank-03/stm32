@@ -1,0 +1,9 @@
+../driver/src/i2c.c:12:5:clkapb	24	static
+../driver/src/i2c.c:25:5:clkapb1	32	static
+../driver/src/i2c.c:40:6:init	32	static
+../driver/src/i2c.c:63:6:ack	4	static
+../driver/src/i2c.c:66:6:pe_enable	4	static
+../driver/src/i2c.c:70:6:start	4	static
+../driver/src/i2c.c:75:6:addr	24	static
+../driver/src/i2c.c:85:6:write	16	static
+../driver/src/i2c.c:94:7:stop	4	static

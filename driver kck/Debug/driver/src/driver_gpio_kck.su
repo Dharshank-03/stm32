@@ -1,0 +1,8 @@
+../driver/src/driver_gpio_kck.c:10:6:GPIO_periclkcont	16	static
+../driver/src/driver_gpio_kck.c:41:6:GPIO_CONFIG	16	static
+../driver/src/driver_gpio_kck.c:53:9:GPIO_readfrominputpin	24	static
+../driver/src/driver_gpio_kck.c:58:6:GPIO_writetooutputpin	16	static
+../driver/src/driver_gpio_kck.c:64:6:interrupt_en	24	static
+../driver/src/driver_gpio_kck.c:88:6:GPIO_IRQinterrupt	16	static
+../driver/src/driver_gpio_kck.c:97:6:GPIO_IRQCONFIG	16	static
+../driver/src/driver_gpio_kck.c:101:6:GPIOIRQ_HANDLE	16	static

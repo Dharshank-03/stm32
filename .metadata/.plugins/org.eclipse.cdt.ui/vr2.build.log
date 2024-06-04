@@ -1,0 +1,111 @@
+02:35:24 **** Incremental Build of configuration Debug for project vr2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Device" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Device" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Device" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Device" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/CMSIS/Include" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+In file included from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:31,
+                 from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc/stm32f4xx_hal_conf.h:275,
+                 from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:32,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c:97:
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6728:45: error: unknown type name 'RCC_PeriphCLKInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6728 | HAL_StatusTypeDef HAL_RCCEx_PeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit);
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                             RCC_PLLInitTypeDef
+In file included from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:31,
+                 from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc/stm32f4xx_hal_conf.h:275,
+                 from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:32,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c:81:
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6728:45: error: unknown type name 'RCC_PeriphCLKInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6728 | HAL_StatusTypeDef HAL_RCCEx_PeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit);
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                             RCC_PLLInitTypeDef
+In file included from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:31,
+                 from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc/stm32f4xx_hal_conf.h:275,
+                 from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:32,
+                 from ../Src/main.c:20:
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6728:45: error: unknown type name 'RCC_PeriphCLKInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6728 | HAL_StatusTypeDef HAL_RCCEx_PeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit);
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                             RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6729:35: error: unknown type name 'RCC_PeriphCLKInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6729 | void HAL_RCCEx_GetPeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6729:35: error: unknown type name 'RCC_PeriphCLKInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6729 | void HAL_RCCEx_GetPeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6740:42: error: unknown type name 'RCC_PLLI2SInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6740 | HAL_StatusTypeDef HAL_RCCEx_EnablePLLI2S(RCC_PLLI2SInitTypeDef  *PLLI2SInit);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~
+      |                                          RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6740:42: error: unknown type name 'RCC_PLLI2SInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6740 | HAL_StatusTypeDef HAL_RCCEx_EnablePLLI2S(RCC_PLLI2SInitTypeDef  *PLLI2SInit);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~
+      |                                          RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6744:42: error: unknown type name 'RCC_PLLSAIInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6744 | HAL_StatusTypeDef HAL_RCCEx_EnablePLLSAI(RCC_PLLSAIInitTypeDef  *PLLSAIInit);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~
+      |                                          RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6729:35: error: unknown type name 'RCC_PeriphCLKInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6729 | void HAL_RCCEx_GetPeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   RCC_PLLInitTypeDef
+In file included from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:31,
+                 from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Core/Inc/stm32f4xx_hal_conf.h:275,
+                 from C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:32,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:36:
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6728:45: error: unknown type name 'RCC_PeriphCLKInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6728 | HAL_StatusTypeDef HAL_RCCEx_PeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit);
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                             RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6744:42: error: unknown type name 'RCC_PLLSAIInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6744 | HAL_StatusTypeDef HAL_RCCEx_EnablePLLSAI(RCC_PLLSAIInitTypeDef  *PLLSAIInit);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~
+      |                                          RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6740:42: error: unknown type name 'RCC_PLLI2SInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6740 | HAL_StatusTypeDef HAL_RCCEx_EnablePLLI2S(RCC_PLLI2SInitTypeDef  *PLLI2SInit);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~
+      |                                          RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6744:42: error: unknown type name 'RCC_PLLSAIInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6744 | HAL_StatusTypeDef HAL_RCCEx_EnablePLLSAI(RCC_PLLSAIInitTypeDef  *PLLSAIInit);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~
+      |                                          RCC_PLLInitTypeDef
+../Src/main.c:22:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   22 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+      |    ^~~~~~~
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6729:35: error: unknown type name 'RCC_PeriphCLKInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6729 | void HAL_RCCEx_GetPeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6740:42: error: unknown type name 'RCC_PLLI2SInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6740 | HAL_StatusTypeDef HAL_RCCEx_EnablePLLI2S(RCC_PLLI2SInitTypeDef  *PLLI2SInit);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~
+      |                                          RCC_PLLInitTypeDef
+C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/vr2/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:6744:42: error: unknown type name 'RCC_PLLSAIInitTypeDef'; did you mean 'RCC_PLLInitTypeDef'?
+ 6744 | HAL_StatusTypeDef HAL_RCCEx_EnablePLLSAI(RCC_PLLSAIInitTypeDef  *PLLSAIInit);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~
+      |                                          RCC_PLLInitTypeDef
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DeInit':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:202:3: warning: implicit declaration of function '__HAL_RCC_AHB2_FORCE_RESET' [-Wimplicit-function-declaration]
+  202 |   __HAL_RCC_AHB2_FORCE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:64: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:64: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o] Error 1
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:203:3: warning: implicit declaration of function '__HAL_RCC_AHB2_RELEASE_RESET' [-Wimplicit-function-declaration]
+  203 |   __HAL_RCC_AHB2_RELEASE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:205:3: warning: implicit declaration of function '__HAL_RCC_AHB3_FORCE_RESET' [-Wimplicit-function-declaration]
+  205 |   __HAL_RCC_AHB3_FORCE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:206:3: warning: implicit declaration of function '__HAL_RCC_AHB3_RELEASE_RESET' [-Wimplicit-function-declaration]
+  206 |   __HAL_RCC_AHB3_RELEASE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:64: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+
+02:35:26 Build Failed. 21 errors, 5 warnings. (took 1s.135ms)
+

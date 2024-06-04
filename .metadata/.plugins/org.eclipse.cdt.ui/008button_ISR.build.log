@@ -1,0 +1,10 @@
+23:06:53 **** Incremental Build of configuration Debug for project 008button_ISR ****
+make -j4 all 
+arm-none-eabi-size   008button_ISR.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5304	    132	   1596	   7032	   1b78	008button_ISR.elf
+Finished building: default.size.stdout
+ 
+
+23:06:54 Build Finished. 0 errors, 0 warnings. (took 268ms)
+

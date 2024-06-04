@@ -1,0 +1,11 @@
+11:50:47 **** Rebuild of configuration Debug for project type_casting ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o type_cast.o "..\\type_cast.c" 
+..\type_cast.c: In function 'main':
+..\type_cast.c:7:25: warning: unsigned conversion from 'long long int' to 'unsigned char' changes value from '35184372069109' to '245' [-Woverflow]
+    7 |    unsigned char data = 0x1FFFFFFFA0B0 + 0x1245;
+      |                         ^~~~~~~~~~~~~~
+gcc -o type_casting.exe type_cast.o 
+
+11:50:48 Build Finished. 0 errors, 1 warnings. (took 612ms)
+

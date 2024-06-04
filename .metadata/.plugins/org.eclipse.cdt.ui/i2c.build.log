@@ -1,0 +1,101 @@
+15:08:34 **** Incremental Build of configuration Debug for project i2c ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/i2c/i2clibrary/i2c.h" -I"C:/Users/Admin/OneDrive/Desktop/embedded c/instructor/host/i2c/i2clibrary" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'trobleshoot':
+../Core/Src/main.c:24:12: warning: unused variable 'rcc' [-Wunused-variable]
+   24 |  uint32_t *rcc = (uint32_t*) 0x40023800;
+      |            ^~~
+../Core/Src/main.c: In function 'init':
+../Core/Src/main.c:69:11: warning: unused variable 'ccrvalue' [-Wunused-variable]
+   69 |  uint16_t ccrvalue= 0xA0;
+      |           ^~~~~~~~
+../Core/Src/main.c: In function 'addr':
+../Core/Src/main.c:96:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+   96 |  while (!(i2c_base->I2C_SR1 & 1<<1 ));
+      |  ^~~~~
+../Core/Src/main.c:98:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+   98 |   int dummyread = i2c_base->I2C_SR1;
+      |   ^~~
+../Core/Src/main.c:98:7: warning: variable 'dummyread' set but not used [-Wunused-but-set-variable]
+   98 |   int dummyread = i2c_base->I2C_SR1;
+      |       ^~~~~~~~~
+../Core/Src/main.c: In function 'recaddr':
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'nack'; did you mean 'ack'? [-Wimplicit-function-declaration]
+  112 |   nack();
+      |   ^~~~
+      |   ack
+../Core/Src/main.c:113:3: warning: implicit declaration of function 'stop' [-Wimplicit-function-declaration]
+  113 |   stop();
+      |   ^~~~
+../Core/Src/main.c:123:5: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  123 |     while (!(i2c_base->I2C_SR1 & 1<<6 ));
+      |     ^~~~~
+../Core/Src/main.c:124:6: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  124 |      *(a+temp)=i2c_base->I2C_DR;
+      |      ^
+../Core/Src/main.c:109:6: warning: variable 'dummyread' set but not used [-Wunused-but-set-variable]
+  109 |  int dummyread = i2c_base->I2C_SR1;
+      |      ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:152:6: warning: conflicting types for 'stop'
+  152 | void stop(){
+      |      ^~~~
+../Core/Src/main.c:113:3: note: previous implicit declaration of 'stop' was here
+  113 |   stop();
+      |   ^~~~
+../Core/Src/main.c:160:6: warning: conflicting types for 'nack'
+  160 | void nack(){
+      |      ^~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'nack' was here
+  112 |   nack();
+      |   ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:215:23: warning: passing argument 2 of 'recaddr' from incompatible pointer type [-Wincompatible-pointer-types]
+  215 |          recaddr(0x68,&j,6);
+      |                       ^~
+      |                       |
+      |                       uint8_t (*)[6] {aka unsigned char (*)[6]}
+../Core/Src/main.c:101:37: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[6]' {aka 'unsigned char (*)[6]'}
+  101 | void recaddr(uint8_t slave,uint8_t *a,uint8_t len){
+      |                            ~~~~~~~~~^
+../Core/Src/main.c:221:21: warning: format '%d' expects argument of type 'int', but argument 2 has type 'double' [-Wformat=]
+  221 |          printf("x=%d\n",gx);
+      |                    ~^    ~~
+      |                     |    |
+      |                     int  double
+      |                    %f
+../Core/Src/main.c:219:16: warning: unused variable 'gy' [-Wunused-variable]
+  219 |          float gy = y/16384.0;
+      |                ^~
+../Core/Src/main.c:183:10: warning: unused variable 'p1' [-Wunused-variable]
+  183 |  uint8_t p1=0xff;
+      |          ^~
+../Core/Src/main.c:177:11: warning: unused variable 'kck' [-Wunused-variable]
+  177 |   uint8_t kck;
+      |           ^~~
+../Core/Src/main.c:176:11: warning: unused variable 'c1' [-Wunused-variable]
+  176 |   uint8_t c1 = 0x6b;
+      |           ^~
+../Core/Src/main.c:172:7: warning: unused variable 'k' [-Wunused-variable]
+  172 |  int  k = 0x51;
+      |       ^
+../Core/Src/main.c:171:8: warning: unused variable 'a' [-Wunused-variable]
+  171 |   char a[] = "kannan kck 3";
+      |        ^
+../Core/Src/main.c:170:12: warning: variable 'z' set but not used [-Wunused-but-set-variable]
+  170 |   uint16_t z;
+      |            ^
+arm-none-eabi-gcc -o "i2c.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Admin\OneDrive\Desktop\embedded c\instructor\host\i2c\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="i2c.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: i2c.elf
+ 
+arm-none-eabi-size   i2c.elf 
+arm-none-eabi-objdump -h -S  i2c.elf  > "i2c.list"
+   text	   data	    bss	    dec	    hex	filename
+   8984	    112	   1592	  10688	   29c0	i2c.elf
+Finished building: default.size.stdout
+ 
+Finished building: i2c.list
+ 
+
+15:08:36 Build Finished. 0 errors, 19 warnings. (took 1s.995ms)
+

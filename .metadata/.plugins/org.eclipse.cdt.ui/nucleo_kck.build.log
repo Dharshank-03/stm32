@@ -1,0 +1,10 @@
+21:53:07 **** Build of configuration Debug for project nucleo_kck ****
+make -j4 all 
+arm-none-eabi-size   nucleo_kck.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25916	    504	   1592	  28012	   6d6c	nucleo_kck.elf
+Finished building: default.size.stdout
+ 
+
+21:53:08 Build Finished. 0 errors, 0 warnings. (took 1s.111ms)
+
