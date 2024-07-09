@@ -1,0 +1,130 @@
+09:07:10 **** Incremental Build of configuration Debug for project LED_BUTTON ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:66:1: warning: data definition has no type or storage class
+   66 | currentstate = STATE_IDLE;
+      | ^~~~~~~~~~~~
+../Core/Src/main.c:66:1: warning: type defaults to 'int' in declaration of 'currentstate' [-Wimplicit-int]
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:269:4: warning: implicit declaration of function 'statehandle' [-Wimplicit-function-declaration]
+  269 |    statehandle(STATE_RUNNING);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:278:8: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  278 |        sprintf(s,"n = %d,start = %d\r\n",n,start);
+      |        ^~~~~~~
+../Core/Src/main.c:278:8: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:278:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  278 |        sprintf(s,"n = %d,start = %d\r\n",n,start);
+      |                       ~^                 ~
+      |                        |                 |
+      |                        int               uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:278:35: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  278 |        sprintf(s,"n = %d,start = %d\r\n",n,start);
+      |                                  ~^        ~~~~~
+      |                                   |        |
+      |                                   int      uint32_t {aka long unsigned int}
+      |                                  %ld
+../Core/Src/main.c:279:45: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  279 |               HAL_UART_Transmit(&huart2, s, strlen(s), 100);
+      |                                             ^~~~~~
+../Core/Src/main.c:279:45: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:279:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  279 |               HAL_UART_Transmit(&huart2, s, strlen(s), 100);
+      |                                          ^
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:286:4: warning: incompatible implicit declaration of built-in function 'sprintf'
+  286 |    sprintf(s,"cmp = %d\r\n",cmp);
+      |    ^~~~~~~
+../Core/Src/main.c:286:4: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:286:22: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  286 |    sprintf(s,"cmp = %d\r\n",cmp);
+      |                     ~^      ~~~
+      |                      |      |
+      |                      int    uint32_t {aka long unsigned int}
+      |                     %ld
+../Core/Src/main.c:287:38: warning: incompatible implicit declaration of built-in function 'strlen'
+  287 |        HAL_UART_Transmit(&huart2, s, strlen(s), 100);
+      |                                      ^~~~~~
+../Core/Src/main.c:287:38: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:287:35: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  287 |        HAL_UART_Transmit(&huart2, s, strlen(s), 100);
+      |                                   ^
+      |                                   |
+      |                                   char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:309:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+  309 |     sprintf(s,"%d,%d\r\n",start,n);
+      |     ^~~~~~~
+../Core/Src/main.c:309:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:309:17: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  309 |     sprintf(s,"%d,%d\r\n",start,n);
+      |                ~^         ~~~~~
+      |                 |         |
+      |                 int       uint32_t {aka long unsigned int}
+      |                %ld
+../Core/Src/main.c:309:20: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  309 |     sprintf(s,"%d,%d\r\n",start,n);
+      |                   ~^            ~
+      |                    |            |
+      |                    int          uint32_t {aka long unsigned int}
+      |                   %ld
+../Core/Src/main.c:310:35: warning: incompatible implicit declaration of built-in function 'strlen'
+  310 |     HAL_UART_Transmit(&huart2, s, strlen(s), 100);
+      |                                   ^~~~~~
+../Core/Src/main.c:310:35: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:310:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  310 |     HAL_UART_Transmit(&huart2, s, strlen(s), 100);
+      |                                ^
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:319:6: warning: conflicting types for 'statehandle'
+  319 | void statehandle(State state){
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:269:4: note: previous implicit declaration of 'statehandle' was here
+  269 |    statehandle(STATE_RUNNING);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "LED_BUTTON.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Admin\OneDrive\Desktop\embedded c\instructor\host\LED_BUTTON\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LED_BUTTON.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LED_BUTTON.elf
+ 
+arm-none-eabi-size   LED_BUTTON.elf 
+arm-none-eabi-objdump -h -S  LED_BUTTON.elf  > "LED_BUTTON.list"
+   text	   data	    bss	    dec	    hex	filename
+  12796	    120	   1720	  14636	   392c	LED_BUTTON.elf
+Finished building: default.size.stdout
+ 
+Finished building: LED_BUTTON.list
+ 
+
+09:07:12 Build Finished. 0 errors, 20 warnings. (took 2s.379ms)
+

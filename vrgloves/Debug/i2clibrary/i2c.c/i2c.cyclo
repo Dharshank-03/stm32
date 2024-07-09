@@ -1,0 +1,10 @@
+../i2clibrary/i2c.c/i2c.c:11:6:gpio	1
+../i2clibrary/i2c.c/i2c.c:33:6:init3	1
+../i2clibrary/i2c.c/i2c.c:51:6:ack	1
+../i2clibrary/i2c.c/i2c.c:55:6:pe_enable	1
+../i2clibrary/i2c.c/i2c.c:60:6:start	2
+../i2clibrary/i2c.c/i2c.c:66:6:addr	2
+../i2clibrary/i2c.c/i2c.c:73:6:stop	2
+../i2clibrary/i2c.c/i2c.c:79:6:nack	1
+../i2clibrary/i2c.c/i2c.c:83:6:read	8
+../i2clibrary/i2c.c/i2c.c:127:6:write	4

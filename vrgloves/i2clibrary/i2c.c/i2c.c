@@ -65,7 +65,7 @@ void start(){
 }
 void addr(uint8_t slave){
 	i2c_base->I2C_DR = slave<<1;
-	while (!(i2c_base->I2C_SR1 & 1<<1 ));
+	while (!(i2c_base->I2C_SR1 & 1<<1 )){};
 
 		int dummyread = i2c_base->I2C_SR1;
 		 dummyread = i2c_base->I2C_SR2;
@@ -73,7 +73,7 @@ void addr(uint8_t slave){
 void stop(){
 
 
-	while (!(i2c_base->I2C_SR1 &= 132));
+	while (!(i2c_base->I2C_SR1 &= 132)){};
 			i2c_base->I2C_CR1 = 1<<9;
 	}
 void nack(){
@@ -89,7 +89,7 @@ void read(uint8_t addr,uint8_t *a,uint8_t len){
 
 	//i2c_base->I2C_CR1 &= ~(1<<10);
 
-	while (!(i2c_base->I2C_SR1 & 1<<1 ));
+	while (!(i2c_base->I2C_SR1 & 1<<1 )){};
 	int dummyread = i2c_base->I2C_SR1;
 	 dummyread = i2c_base->I2C_SR2;
 	 if(len==1){
@@ -104,21 +104,21 @@ void read(uint8_t addr,uint8_t *a,uint8_t len){
 		 ack();
 		 int temp=0;
 		 while(len>3){
-			 while (!(i2c_base->I2C_SR1 & 1<<6 ));
+			 while (!(i2c_base->I2C_SR1 & 1<<6 )){};
 				 *(a+temp)=i2c_base->I2C_DR;
 			//	 printf("%d\n",*a);
 				 len--;
 				 temp++;
 		 }
 
-		 while(!(i2c_base->I2C_SR1 & 1<<2 ));
+		 while(!(i2c_base->I2C_SR1 & 1<<2 )){};
 		 *(a+temp)=i2c_base->I2C_DR;
 		 temp++;
 		 nack();
 
 		 *(a+temp)=i2c_base->I2C_DR;
 		 temp++;
-		 while (!(i2c_base->I2C_SR1 & 1<<6 ));
+		 while (!(i2c_base->I2C_SR1 & 1<<6 )){};
 		 stop();
 		 *(a+temp)=i2c_base->I2C_DR;
 	 }
@@ -129,14 +129,14 @@ void write(uint8_t addr,uint8_t *data,int len){
 	//ack();
 	start();
 	i2c_base->I2C_DR = addr<<1;
-		while (!(i2c_base->I2C_SR1 & 1<<1 ));
+		while (!(i2c_base->I2C_SR1 & 1<<1 )){};
 
 			int dummyread = i2c_base->I2C_SR1;
 			 dummyread = i2c_base->I2C_SR2;
 
 	while(len>0){
 		i2c_base->I2C_DR = *data;
-		while (!(i2c_base->I2C_SR1 &= 1<<7));
+		while (!(i2c_base->I2C_SR1 &= 1<<7)){};
      data++;
 		len--;
 	}

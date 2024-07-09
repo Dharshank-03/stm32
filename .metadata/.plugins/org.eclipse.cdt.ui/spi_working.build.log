@@ -1,0 +1,10 @@
+15:00:41 **** Incremental Build of configuration Debug for project spi_working ****
+make -j4 all 
+arm-none-eabi-size   spi_working.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5820	     20	   1660	   7500	   1d4c	spi_working.elf
+Finished building: default.size.stdout
+ 
+
+15:00:41 Build Finished. 0 errors, 0 warnings. (took 646ms)
+

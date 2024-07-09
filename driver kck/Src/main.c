@@ -64,7 +64,7 @@ uint32_t *p= (uint32_t*)0x40010004;
 
 int main(void)
 {
-char   a[15]="13kannankck3";
+char   a[15]="dog";
 char c='1';
 uint8_t h=3;
 uint8_t d=0;

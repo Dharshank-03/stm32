@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;LCD_bluepill/LCD_DRIVER/Driver.h&apos; to &apos;Driver_header&apos;" description="Rename resource &apos;Driver.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="LCD_DRIVER/Driver.h" name="Driver_header" stamp="1718950231581" updateReferences="true"/>
+</session>

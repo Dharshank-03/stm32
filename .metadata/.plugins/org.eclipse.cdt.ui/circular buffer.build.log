@@ -1,0 +1,66 @@
+13:18:55 **** Incremental Build of configuration Debug for project circular buffer ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'read':
+../Core/Src/main.c:73:33: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   73 |   HAL_UART_Transmit(&huart2, s, strlen(s), 10);
+      |                                 ^~~~~~
+../Core/Src/main.c:73:33: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:73:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   73 |   HAL_UART_Transmit(&huart2, s, strlen(s), 10);
+      |                              ^
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:137:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  137 |   sprintf(s1,"%.3f,%.3f\r\n",avg/100,avg1/100);
+      |   ^~~~~~~
+../Core/Src/main.c:137:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:138:34: warning: incompatible implicit declaration of built-in function 'strlen'
+  138 |   HAL_UART_Transmit(&huart2, s1, strlen(s1), 10);
+      |                                  ^~~~~~
+../Core/Src/main.c:138:34: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:138:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  138 |   HAL_UART_Transmit(&huart2, s1, strlen(s1), 10);
+      |                              ^~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:94:6: warning: unused variable 'c' [-Wunused-variable]
+   94 |  int c;
+      |      ^
+arm-none-eabi-gcc -o "circular buffer.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Admin\OneDrive\Desktop\embedded c\instructor\host\circular buffer\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="circular buffer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: circular buffer.elf
+ 
+arm-none-eabi-size   circular\ buffer.elf 
+arm-none-eabi-objdump -h -S  circular\ buffer.elf  > "circular buffer.list"
+   text	   data	    bss	    dec	    hex	filename
+  25056	    484	   2068	  27608	   6bd8	circular buffer.elf
+Finished building: default.size.stdout
+ 
+Finished building: circular buffer.list
+ 
+
+13:18:58 Build Finished. 0 errors, 8 warnings. (took 2s.201ms)
+

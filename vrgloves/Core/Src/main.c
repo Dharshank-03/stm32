@@ -18,7 +18,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "i2c.h"
+#include <math.h>
+#include <stdio.h>
+#include<string.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -86,20 +89,7 @@ void microDelay (uint16_t delay){
 	  __HAL_TIM_SET_COUNTER(&htim6, 0);
 	  while (__HAL_TIM_GET_COUNTER(&htim6) < delay);
 	}
-void clock(){
-int n=20;
-for (int i=0;i<n;i++){
-	stepCCV(i%4);
-HAL_Delay(10);
-	  }
-}
 
-void anticlock(){
-	for (int i=20;i>0;i--){
-		stepCCV(i%4);
-	HAL_Delay(10);
-		  }
-}
 void stepCCV (int thisStep) // CCV - Counter Clockwise
 {
 	 switch (thisStep) {
@@ -132,45 +122,35 @@ void stepCCV (int thisStep) // CCV - Counter Clockwise
 
   }
 
-void step2(){
-    HAL_GPIO_WritePin(IN1_PORT, IN1_PIN, 1); // IN1
-		    HAL_GPIO_WritePin(IN2_PORT, IN2_PIN, 0); // IN2
-		    HAL_GPIO_WritePin(IN3_PORT, IN3_PIN, 1); // IN3
-		    HAL_GPIO_WritePin(IN4_PORT, IN4_PIN, 0);
-		    // IN4
-		    //microDelay(delay);
-	 HAL_Delay(10);
-		    HAL_GPIO_WritePin(IN1_PORT, IN1_PIN, 0);   // IN1
-		    HAL_GPIO_WritePin(IN2_PORT, IN2_PIN, 1);   // IN2
-		    HAL_GPIO_WritePin(IN3_PORT, IN3_PIN, 1); // IN3
-		    HAL_GPIO_WritePin(IN4_PORT, IN4_PIN, 0);
-		   // IN4
-	  HAL_Delay(10);
-		    HAL_GPIO_WritePin(IN1_PORT, IN1_PIN, 0); // IN1
-		    HAL_GPIO_WritePin(IN2_PORT, IN2_PIN, 1);   // IN2
-		    HAL_GPIO_WritePin(IN3_PORT, IN3_PIN, 0); // IN3
-		    HAL_GPIO_WritePin(IN4_PORT, IN4_PIN, 1);
-		   // IN4
-		    HAL_Delay(10);
-		    HAL_GPIO_WritePin(IN1_PORT, IN1_PIN, 1); // IN1
-		    HAL_GPIO_WritePin(IN2_PORT, IN2_PIN, 0);   // IN2
-		    HAL_GPIO_WritePin(IN3_PORT, IN3_PIN, 0);   // IN3
-		    HAL_GPIO_WritePin(IN4_PORT, IN4_PIN, 1); // IN4
-
+void clock(){
+int n=10;
+for (int i=0;i<n;i++){
+	stepCCV(i%4);
+HAL_Delay(10);
+	  }
 }
+
+void anticlock(){
+	for (int i=10;i>0;i--){
+		stepCCV(i%4);
+	HAL_Delay(10);
+		  }
+}
+
  // mpu6050 function for getting the accelerometer data
 void  mpu6050(uint8_t *o){
 
 	uint8_t g[2]= {0x6b,0};  // address of mpu6050 power management to wake from sleep mode
-	uint8_t l[2]= {0x1c,0};  // address for acc sensor config
+	uint8_t l[2]= {0x1c,0};   // address for acc sensor config
 	uint8_t p=0x3b;          // address for acc sensor data
 
 	// Getting accelerometer data from the mpu6050 *refer i2c.h file for i2c function
 	  init3(0x68);
-      write(0x68, &l, 2);
-      write(0x68, &g, 2);
-      write(0x68, &p, 1);
-	  read(0x68,o,6);
+      write(0x68, (uint8_t*)&l, 2);
+      write(0x68, (uint8_t*)&g, 2);
+      write(0x68, (uint8_t*)&p, 1);
+	  read(0x68,o,6);      // giving the address to read data register which deferance the
+	                           // address and write data on j variable since its address given to o pointer
 }
 
 // mpu6050 function for getting gyro data
@@ -181,9 +161,9 @@ void mpu6050gyro(uint8_t *o){
 
 	// Getting gyro data from the mpu6050
 		  init3(0x68);
-		  write(0x68, &l, 2);
-		  write(0x68, &g, 2);
-	      write(0x68, &p, 1);
+		  write(0x68, (uint8_t*)&l, 2);
+		  write(0x68, (uint8_t*)&g, 2);
+	      write(0x68, (uint8_t*)&p, 1);
           read(0x68,o,6);
 }
 
@@ -215,7 +195,7 @@ void acc(){
     gz = z/16384.0;
 
     // converting acc to radian
-    pitch = atan2(gy,sqrt((gx*gx)+(gz*gz)));
+    pitch = sin(gy/sqrt((gx*gx)+(gz*gz)));
     roll = atan2 (gx,sqrt((gy*gy)+(gz*gz)));
     yaw = atan2(gx,gy);
 
@@ -232,7 +212,7 @@ float  gyrox,gyroy,gyroz; // gyro variables
 
 void gyro(){
 	  uint8_t s[6];
-	  mpu6050gyro(&s);
+	  mpu6050gyro((uint8_t*)&s);
 
 	  // getting gyro values
 	  int16_t gyrox1  = (int16_t) (s[0]<<8| s[1]);
@@ -275,7 +255,7 @@ int main(void)
 	   MX_USART2_UART_Init();
 	   MX_TIM6_Init();
 //dis(0);
-/*
+
 for(int i=0;i<2000;i++){
 
 	gyro();
@@ -289,16 +269,16 @@ for(int i=0;i<2000;i++){
 gyroxangle = gyroxangle/2000;
 gyroyangle = gyroyangle/2000;
 gyrozangle = gyrozangle/2000;
-*/
+
 char q[90];
-char q1[90];
-char q2[90];
-char s[6];
-int degree1;
-int avg;
-float k=0.8;
-float kck2;
-int flag =1;
+//char q1[90];
+//char q2[90];
+//char s[6];
+//int degree1;
+//int avg;
+//float k=0.8;
+//float kck2;
+int flag = 1;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -314,7 +294,7 @@ int flag =1;
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
- uint32_t kck = HAL_GetTickFreq();
+// uint32_t kck = HAL_GetTickFreq();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -328,10 +308,10 @@ int flag =1;
 
 
  /* USER CODE BEGIN Init */
-float gx ;
+//float gx ;
 float kalpitch  = 0;
-float kalpitch1 = 0;
-float kalpitch2 = 0;
+//float kalpitch1 = 0;
+//float kalpitch2 = 0;
 float kalroll =0;
 float kalyaw = 0;
 int  uncertain = 4;
@@ -342,71 +322,49 @@ int uncertainyaw = 0;
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   uint32_t cmp=0;
-  float yaw;
-  float yawpos;
-  float yawneg;
+//  float yaw;
+//  float yawpos;
+  //float yawneg;
   uint16_t adc[9];
   uint16_t adc1[9];
-  uint16_t induc;
+ // uint16_t induc;
   float gyroval;
   // taking 2000 sample  values
   float h[9];
 
-  int high[9];
+ // int high[9];
 
-  float degeer[9];
+  float degeer[11];
   HAL_TIM_Base_Start(&htim6);
  // microDelay(50);
 
+
+  HAL_ADC_Start_DMA(&hadc1,(uint16_t*) &adc1, 9);
   for (int i=0;i<9;i++){
-
-  HAL_ADC_Start_DMA(&hadc1,&adc1, 9);
-
-   high[0] = adc1[0] + high[0];
-   high[1] = adc1[1] + high[1];
-   high[2] = adc1[2] + high[2];
-   high[3] = adc1[3] + high[3];
-   high[4] = adc1[4] + high[4];
-   high[5] = adc1[5] + high[5];
-   high[6] = adc1[6] + high[6];
-   high[7] = adc1[7] + high[7];
-   high[8] = adc1[8] + high[8];
-
-  h[0] = (adc1[0]/90)+h[0];
-  h[1] = (adc1[1]/90)+h[1];
-  h[2] = (adc1[2]/90)+h[2];
-  h[3] = (adc1[3]/90)+h[3];
-  h[4] = (adc1[4]/90)+h[4];
-  h[5] = (adc1[5]/90)+h[5];
-  h[6] = (adc1[6]/90)+h[6];
-  h[7] = (adc1[7]/90)+h[7];
-  h[8] = (adc1[8]/90)+h[8];
-
+  // high[i] = adc1[i] + high[i];
+   h[i] = (adc1[i]/90);
   }
-
+/*
 for(int i=0;i<9;i++){
 //	high[i] = high[i]/9;
 	h[i] = 3500/90;
 }
 
-
+*/
 int  elapsed;
-int prev;
+//int prev;
 
   while (1)
   {
 
-	  uint32_t n=0;
-//
+uint32_t n=0;
 n = HAL_GetTick();
 elapsed = n- cmp;
 cmp=n;
 float mul[3];
 float mulgyro[3];
-int prev;
-	         for(int i=0;i<15;i++){
+//int prev;
 
-if(i>0){
 
 	          	     	     acc();
 	          	  	       	 mul[0] = de;
@@ -428,7 +386,7 @@ if(i>0){
                   kalman(kalyaw, uncertainyaw, mulgyro[2], mul[2], elapsed);
                   kalyaw = dout[0];
                   uncertainyaw = dout[1];
-
+               /*
                  yaw = kalyaw;
                  if (kalyaw >yaw){
                 	 yawpos = kalyaw - yaw;
@@ -436,8 +394,44 @@ if(i>0){
                  if (kalyaw<yaw){
                 	 yawpos = yaw + kalyaw;
                  }
+               */
+             degeer[9] = kalpitch;
+             degeer[10] = kalroll;
 
-}
+
+             HAL_ADC_Start_DMA(&hadc1,(uint16_t*)&adc1, 9);
+
+          	 for (int i=0;i<9;i++){
+          	  degeer[i] = adc1[i]/h[i];
+          	 }
+
+          	for (int i=0;i<11;i++){
+          		  sprintf(q,"%.3f\r\n,",degeer[i]);
+          	  	  HAL_UART_Transmit(&huart2, q, strlen(q), 10);
+          	}
+          	HAL_UART_Receive(&huart2, p, 1, 10);
+
+
+
+
+            if (p[0]=='1'){
+              if (flag < 2){
+                 clock();
+                 flag = flag + 1;
+                           }
+                }
+           if (p[0]=='0'){
+          	 if (flag > 1){
+  	        	anticlock();
+  	 	        flag = flag - 1 ;
+                           }
+                  }
+
+   HAL_Delay(3);
+
+
+   /*
+//p[0] = '0';
 
 
 	         sprintf(q,"%.3f,",kalpitch);
@@ -445,62 +439,27 @@ if(i>0){
 	         sprintf(q,"%.3f,",kalroll);
 	         HAL_UART_Transmit(&huart2, q, strlen(q), 10);
 
-	         }
-	                 sprintf(q,"%d\r\n",3);
-	       	         HAL_UART_Transmit(&huart2, q, strlen(q), 10);
+
 
 	 //                      Alternate sensor                      //
 
-	         HAL_ADC_Start_DMA(&hadc1,&adc1, 9);
 
-	         for (int i=0;i<9;i++){
-	         degeer[i] = (adc1[i] - 3500)/h[i];
-	         }
 	     //   HAL_GPIO_WritePin(IN1_PORT, IN1_PIN, 1);
 
          //  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, 1);
         //sprintf(q,"%d\r\n",a);
 
-for (int i=0;i<9;i++){
-	  sprintf(q,"%.3f,",degeer[i]);
-  	  HAL_UART_Transmit(&huart2, q, strlen(q), 10);
-}
 
-HAL_UART_Receive(&huart2, p, 1, 10);
- // HAL_ADC_Start_DMA(&hadc1,&induc, 1);
+
+
+//HAL_ADC_Start_DMA(&hadc1,&induc, 9);
 //sprintf(q,"%.3f\r\n" ,induc);
+//HAL_UART_Transmit(&huart2, q, strlen(q), 10);
+//
 
-//	 HAL_UART_Transmit(&huart2, q, strlen(q), 10);
-
-	//kHAL_Delay(1);
-
-	// HAL_Delay(1);
-
-	// sprintf(q,"%.3f\r\n" ,kalroll);
-
-	// 	 HAL_UART_Transmit(&huart2, q, strlen(q), 10);
 
 
 	    //  gyroval =  gyroval  + (0.009 * mulgyro[0]);
-
-
-
-   if (p[0]=='1'){
-  //	 if (flag==1){
-      clock();
-    //  flag = flag + 1;
-
-}
-   if (p[0]=='0'){
-  	// if (flag>1){
-  	 	anticlock();
-  	 //	flag = flag - 1;
-
-   }
-//p[0] = '0';
-
-
-
 
       //  sprintf(q,"%d\r\n",elapsed);
 
@@ -510,21 +469,22 @@ HAL_UART_Receive(&huart2, p, 1, 10);
 	       //      HAL_UART_Transmit(&huart2, q, strlen(q), 10);
 
 
-HAL_Delay(3);
-
 
     /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+
   }
+
+  /* USER CODE BEGIN 3 */
   /* USER CODE END 3 */
+}
 
 
 /**
   * @brief System Clock Configuration
   * @retval None
   */
-void SystemClock_Config(void)
+ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};

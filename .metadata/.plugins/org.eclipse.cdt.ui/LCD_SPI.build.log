@@ -1,0 +1,10 @@
+17:38:40 **** Incremental Build of configuration Debug for project LCD_SPI ****
+make -j4 all 
+arm-none-eabi-size   LCD_SPI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  87732	     45	   5832	  93609	  16da9	LCD_SPI.elf
+Finished building: default.size.stdout
+ 
+
+17:38:41 Build Finished. 0 errors, 0 warnings. (took 464ms)
+

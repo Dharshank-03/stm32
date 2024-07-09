@@ -2,7 +2,7 @@
 <section name="Workbench">
 	<item key="LastUsedHeaderTemplate" value="Default C header template"/>
 	<item key="LastUsedSourceTemplate" value="Default C source template"/>
-	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="${workspace_loc:/${ProjName}/Drivers/CMSIS/Include}"/>
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="${workspace_loc:/LCD_bluepill/LCD_DRIVER/Driver_source}"/>
 	<section name="org.eclipse.cdt.internal.ui.browser.opentype.OpenTypeActionSettings">
 		<item key="show_namespaces" value="true"/>
 		<item key="show_classes" value="true"/>

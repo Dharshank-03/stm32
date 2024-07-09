@@ -1,0 +1,102 @@
+18:54:12 **** Incremental Build of configuration Debug for project LED_state_machine ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:20: warning: initialization of 'event *' from incompatible pointer type 'uint8_t *' {aka 'unsigned char *'} [-Wincompatible-pointer-types]
+   97 |      event *Event =&p;
+      |                    ^
+../Core/Src/main.c:104:19: warning: initialization of 'state *' from incompatible pointer type 'uint8_t *' {aka 'unsigned char *'} [-Wincompatible-pointer-types]
+  104 |   state *State  = &p;
+      |                   ^
+../Core/Src/main.c:157:12: warning: implicit declaration of function 'off_func' [-Wimplicit-function-declaration]
+  157 |            off_func(Event);
+      |            ^~~~~~~~
+../Core/Src/main.c:162:35: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  162 |      HAL_UART_Transmit(&huart2,s, strlen(s), 100);
+      |                                   ^~~~~~
+../Core/Src/main.c:162:35: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:162:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  162 |      HAL_UART_Transmit(&huart2,s, strlen(s), 100);
+      |                                ^
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:163:9: warning: implicit declaration of function 'HandleEvent' [-Wimplicit-function-declaration]
+  163 |         HandleEvent(Event->event_on);
+      |         ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:332:7: warning: conflicting types for 'off_func'
+  332 | void  off_func(event *Event){
+      |       ^~~~~~~~
+../Core/Src/main.c:157:12: note: previous implicit declaration of 'off_func' was here
+  157 |            off_func(Event);
+      |            ^~~~~~~~
+../Core/Src/main.c: In function 'off_func':
+../Core/Src/main.c:349:46: warning: incompatible implicit declaration of built-in function 'strlen'
+  349 |      HAL_UART_Transmit(&huart2, (uint8_t*)s, strlen(s), 100);
+      |                                              ^~~~~~
+../Core/Src/main.c:349:46: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:363:6: warning: conflicting types for 'HandleEvent'
+  363 | void HandleEvent(uint8_t p){
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:163:9: note: previous implicit declaration of 'HandleEvent' was here
+  163 |         HandleEvent(Event->event_on);
+      |         ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HandleEvent':
+../Core/Src/main.c:370:4: warning: implicit declaration of function 'livefuc' [-Wimplicit-function-declaration]
+  370 |    livefuc();
+      |    ^~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:418:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  418 |              HAL_UART_Transmit(&huart2, (uint8_t*)s, strlen(s), 100);
+      |                                                      ^~~~~~
+../Core/Src/main.c:418:54: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:428:6: warning: conflicting types for 'livefuc'
+  428 | void livefuc(){
+      |      ^~~~~~~
+../Core/Src/main.c:370:4: note: previous implicit declaration of 'livefuc' was here
+  370 |    livefuc();
+      |    ^~~~~~~
+../Core/Src/main.c: In function 'livefuc':
+../Core/Src/main.c:430:32: warning: incompatible implicit declaration of built-in function 'strlen'
+  430 |  HAL_UART_Transmit(&huart2, s, strlen(s), 10);
+      |                                ^~~~~~
+../Core/Src/main.c:430:32: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:430:29: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  430 |  HAL_UART_Transmit(&huart2, s, strlen(s), 10);
+      |                             ^
+      |                             |
+      |                             char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "LED_state_machine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Admin\OneDrive\Desktop\embedded c\instructor\host\LED_state_machine\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LED_state_machine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LED_state_machine.elf
+ 
+arm-none-eabi-size   LED_state_machine.elf 
+arm-none-eabi-objdump -h -S  LED_state_machine.elf  > "LED_state_machine.list"
+   text	   data	    bss	    dec	    hex	filename
+  12392	     20	   1724	  14136	   3738	LED_state_machine.elf
+Finished building: default.size.stdout
+ 
+Finished building: LED_state_machine.list
+ 
+
+18:54:14 Build Finished. 0 errors, 15 warnings. (took 2s.336ms)
+

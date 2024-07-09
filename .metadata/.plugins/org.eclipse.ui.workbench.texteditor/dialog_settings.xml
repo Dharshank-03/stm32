@@ -6,8 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="GPIO_mode_define"/>
+		<item key="selection" value="DMA_MIN_SIZE "/>
 		<list key="findhistory">
+			<item value="DMA_MIN_SIZE "/>
+			<item value="RGB565 format"/>
+			<item value="mai"/>
+			<item value="main"/>
+			<item value="ST7789_RST_PORT"/>
+			<item value="Mutex"/>
+			<item value="ossemaphore mutex"/>
+			<item value="ossemaphore"/>
 			<item value="GPIO_mode_define"/>
 			<item value="GPIO_pull_define"/>
 			<item value="TIM_Output_Compare_and_PWM_modes"/>
@@ -15,14 +23,6 @@
 			<item value=" TIM_Output_Compare_Polarity"/>
 			<item value="typedef enum"/>
 			<item value="GPIO_PinState"/>
-			<item value="TIM_Input_Capture_Selection"/>
-			<item value="TIM_Input_Capture_Prescaler"/>
-			<item value="TIM_Clock_Prescaler"/>
-			<item value="TIM_Input_Capture_Polarity"/>
-			<item value="GPIO_pins_define"/>
-			<item value="GPIO_pins_defineGPIO_pins_define"/>
-			<item value="GPIO_Alternate_function_selection"/>
-			<item value="Register base address "/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
